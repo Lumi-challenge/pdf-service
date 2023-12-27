@@ -12,7 +12,6 @@ def process_pdf(pdf_path):
             match_num_cliente_instalacao = re.search(r"Nº DA INSTALAÇÃO(.+?)Referente a", text, re.DOTALL)
             if match_num_cliente_instalacao:
                 numero_cliente_instalacao_text = list(filter(lambda x: x != "", match_num_cliente_instalacao.group(1).strip().split(" ")))
-                print(numero_cliente_instalacao_text)
                 result['customerNumber'] = numero_cliente_instalacao_text[0]
                 result['installationNumber'] = numero_cliente_instalacao_text[1]
 
