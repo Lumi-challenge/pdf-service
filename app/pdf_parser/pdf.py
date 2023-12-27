@@ -11,8 +11,10 @@ def process_pdf(pdf_path):
             text = page.extract_text()
             match_num_cliente_instalacao = re.search(r"Nº DA INSTALAÇÃO(.+?)Referente a", text, re.DOTALL)
             if match_num_cliente_instalacao:
-                numero_cliente_instalacao_text = match_num_cliente_instalacao.group(1).strip().split(" ")
-                result['customerNumber'] = int(numero_cliente_instalacao_text[0])
+                numero_cliente_instalacao_text = list(filter(lambda x: x != "", match_num_cliente_instalacao.group(1).strip().split(" ")))
+                print(numero_cliente_instalacao_text)
+                result['customerNumber'] = numero_cliente_instalacao_text[0]
+                result['installationNumber'] = numero_cliente_instalacao_text[1]
 
             match_mes_referencia = re.search(r"\b[A-Z]{3}/\d{4}\b", text)
             if(match_mes_referencia):
