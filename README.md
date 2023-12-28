@@ -60,8 +60,17 @@ python -m venv venv
 
 2. Inicializar virtual env
 
+- 2.1 se tiver no Linux/mac
+
 ```sh
 source venv/bin/activate
+
+```
+
+- 2.2 se tiver no Windowns
+
+```sh
+source Venv/Scripts/activate
 ```
 
 3. Instalando dependencias
