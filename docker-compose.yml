@@ -1,0 +1,15 @@
+version: "3.1"
+
+services:
+  pdf:
+    container_name: lumi-service
+    image: python:3.10-alpine
+    working_dir: /usr/src/lumi-pdf-service
+    restart: always
+    command: sh -c "python -m venv venv && source venv/bin/activate && pip install -r requirements.txt && python app.py || tail -f /dev/null"
+    volumes:
+      - .:/usr/src/lumi-pdf-service
+    ports:
+      - "0.0.0.0:5000:5000"
+    stdin_open: true
+    tty: true
