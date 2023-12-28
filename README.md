@@ -34,9 +34,12 @@ git clone https://github.com/Lumi-challenge/pdf-service.git
 cd pdf-service
 ```
 
+<br/>
+<br/>
+
 > **OBS:** caso deseje usar o docker siga esses passos:
 
-1. Execute `docker compose up -d` para subir um container com o postgres.
+1. Execute `docker compose up -d` para subir um container.
 
 ```sh
 docker compose up -d
