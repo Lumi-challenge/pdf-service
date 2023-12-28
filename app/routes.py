@@ -3,6 +3,7 @@ from app.pdf_parser.pdf import process_pdf
 from werkzeug.utils import secure_filename 
 from flask_cors import CORS
 import os
+import io
 from app.utils import handle_month_year
 
 app = Flask(__name__)
@@ -53,7 +54,12 @@ def download():
         if not os.path.exists(file_path):
             return f'Arquivo "{filename}" não encontrado', 404
 
-        return send_from_directory(pdf_folder, filename)
+        with open(file_path, 'rb') as file:
+            binary_data = file.read()
+
+        buffer = io.BytesIO(binary_data)
+        # return send_from_directory(pdf_folder, filename)
+        return send_file(buffer, download_name=filename, as_attachment=True)
     except Exception as e:
         return f'Erro ao processar o arquivo: {str(e)}', 500
 
