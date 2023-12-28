@@ -28,7 +28,7 @@ O projeto foi desenvolvido no seguinte ambiente:
 git clone https://github.com/Lumi-challenge/pdf-service.git
 ```
 
-1. Navegue até o diretório do projeto.
+2. Navegue até o diretório do projeto.
 
 ```sh
 cd pdf-service
